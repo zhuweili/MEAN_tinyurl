@@ -8,7 +8,7 @@ app.get('/', function (req, res) {
         console.log(" requrest once");
         res.json( {
             name: "weilizhu",
-            age: 26,
+            age: 25,
             major: "CSE"
         })
 });
