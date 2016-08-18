@@ -1,7 +1,7 @@
 /**
  * Created by user on 8/18/16.
  */
-var app = angular.module('tinyurlApp',['ngRoute']);
+var app = angular.module('tinyurlApp',['ngRoute', 'ngResource']);
 
 app.config(function($routeProvider){
     $routeProvider

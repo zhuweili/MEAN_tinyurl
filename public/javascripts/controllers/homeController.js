@@ -3,8 +3,11 @@
  */
 var app = angular.module("tinyurlApp");
 
-app.controller("homeController", ["$scope", function($scope) {
+app.controller("homeController", ["$scope", "$http",function($scope, $http) {
     $scope.submit = function() {
-        console.log("hahhahahahah");
+        console.log($scope.longUrl);
+        $http.post ("/api/v1/urls", {
+            longUrl: $scope.longUrl
+        });
     }
 }]);
