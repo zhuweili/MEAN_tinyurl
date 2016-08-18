@@ -6,7 +6,8 @@ var app = angular.module('tinyurlApp',['ngRoute']);
 app.config(function($routeProvider){
     $routeProvider
         .when("/", {
-            templateUrl: "xxx",
-            controller: "xxx"
+            templateUrl: "./public/views/home.html",
+            controller: "homeController"
         });
+
 });
