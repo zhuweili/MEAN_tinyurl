@@ -3,14 +3,11 @@
  */
 var app = angular.module("tinyurlApp");
 
-app.controller("homeController", ["$scope", "$http","$location",function($scope, $http, $location) {
-    $scope.submit = function() {
-        console.log($scope.longUrl);
-        $http.post ("/api/v1/urls", {
-            longUrl: $scope.longUrl
-        })
-            .success(function(data) {
-                  $location.path("/urls/" +data.shortUrl);
-            });
-    }
+app.controller("urlController", ["$scope", "$http","$routeParams",function($scope, $http, $routeParams) {
+    $http.get("/api/v1/urls/" + $routeParams.shortUrl)
+         .success(function(data) {
+             $scope.shortUrl = data.shortUrl;
+             $scope.longUrl = data.longUrl;
+             $scope.shortUrlToShow = "http://localhost:3000/" + data.shortUrl;
+         });
 }]);
