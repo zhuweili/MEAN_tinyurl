@@ -8,9 +8,11 @@ var app = express();
 var restRouter = require('./routes/rest');
 var redirectRouter = require('./routes/redirect');
 var indexRouter = require('./routes/index');
+var mongoose = require('mongoose');
 
-app.longToShortHash = {};
-app.shortToLongHash = {};
+mongoose.connect('mongodb://user:user@ds025802.mlab.com:25802/tinyurl');
+
+
 
 app.use('/public', express.static(__dirname + '/public'));
 

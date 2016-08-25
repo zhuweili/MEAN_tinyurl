@@ -10,10 +10,9 @@ var jsonParser = bodyParser.json();
 var urlService = require('../services/urlService');
 
 router.post('/urls', jsonParser, function(req, res) {
-    var shortUrl = urlService.getShortUrl(req.body.longUrl, req.app.longToShortHash, req.app.shortToLongHash);
-    res.json({
-        shortUrl: shortUrl,
-        longUrl: req.body.longUrl
+    var longUrl = req.body.longUrl;
+    urlService.getShortUrl(longUrl, function(url) {
+        res.json(url);
     });
 });
 
